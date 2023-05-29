@@ -1,3 +1,4 @@
+
 import Expenses from "./components/Expenses";
 
 function App() {
@@ -29,6 +30,14 @@ function App() {
       <Expenses items={expenses} />
     </div>
   );
+
+  // Using JSX we can return like below: Also need to import React
+  // return React.createElement(
+  //   "div",
+  //   {},
+  //   React.createElement("h2", {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
+  // );
 }
 
 export default App;
