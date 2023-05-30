@@ -20,24 +20,30 @@ const ExpenseForm = () => {
   const titleChangeHandler = (event) => {
     //event - default constant for any event to be hanbdled
     //setEnteredTitle(event.target.value);
-    setUserInput({
-        ...userInput, //To copy other two existing data.
+    setUserInput((prevState) => {
+      return {
+        ...prevState, //In will get the last previous state of this instant and get the latedt data.
         enteredTitle: event.target.value,
+      };
     });
   };
 
   const amountChangeHandler = (event) => {
     //setEnteredAmount(event.target.value);
-    setUserInput({
-        ...userInput, //To copy other two existing data.
+    setUserInput((prevState) => {
+      return {
+        ...prevState,
         enteredAmount: event.target.value,
+      };
     });
   };
   const dateChangeHandler = (event) => {
     //setEnteredDate(event.target.value);
-    setUserInput({
-        ...userInput, //To copy other two existing data.
+    setUserInput((prevState) => {
+      return {
+        ...prevState,
         enteredDate: event.target.value,
+      };
     });
   };
   return (
