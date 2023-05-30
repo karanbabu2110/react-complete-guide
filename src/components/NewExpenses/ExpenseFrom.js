@@ -3,48 +3,25 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 //We can use either function or const only our preference
 const ExpenseForm = () => {
-  // const [enteredTitle, setEnteredTitle] = useState('');
-  // const [enteredAmount, setEnteredAmount] = useState('');
-  // const [enteredDate, setEnteredDate] = useState('');
-
-  //Making multiple state into single state
-  const [userInput, setUserInput] = useState({
-    enteredTitle: "",
-    enteredAmount: "",
-    enteredDate: "",
-  });
+  const [enteredTitle, setEnteredTitle] = useState('');
+  const [enteredAmount, setEnteredAmount] = useState('');
+  const [enteredDate, setEnteredDate] = useState('');
 
   // Vanilla JavaScript
   //document.getElementById('').addEventListener('click', (event) => {})
 
   const titleChangeHandler = (event) => {
-    //event - default constant for any event to be hanbdled
-    //setEnteredTitle(event.target.value);
-    setUserInput((prevState) => {
-      return {
-        ...prevState, //In will get the last previous state of this instant and get the latedt data.
-        enteredTitle: event.target.value,
-      };
-    });
+    //event - default constant for any event to be handled
+    setEnteredTitle(event.target.value);
+    // const val = event.target.value;
+    // val.value.
   };
 
   const amountChangeHandler = (event) => {
-    //setEnteredAmount(event.target.value);
-    setUserInput((prevState) => {
-      return {
-        ...prevState,
-        enteredAmount: event.target.value,
-      };
-    });
+    setEnteredAmount(event.target.value);
   };
   const dateChangeHandler = (event) => {
-    //setEnteredDate(event.target.value);
-    setUserInput((prevState) => {
-      return {
-        ...prevState,
-        enteredDate: event.target.value,
-      };
-    });
+    setEnteredDate(event.target.value);
   };
   return (
     <form>
