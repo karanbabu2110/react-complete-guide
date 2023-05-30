@@ -1,38 +1,69 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 
 import "./ExpenseForm.css";
 //We can use either function or const only our preference
 const ExpenseForm = () => {
-    const [enteredTitle, setEnteredTitle] = useState('');
-    const [enteredAmount, setEnteredAmount] = useState('');
-    const [enteredDate, setEnteredDate] = useState('');
-    // Vanilla JavaScript
-    //document.getElementById('').addEventListener('click', (event) => {})
+  // const [enteredTitle, setEnteredTitle] = useState('');
+  // const [enteredAmount, setEnteredAmount] = useState('');
+  // const [enteredDate, setEnteredDate] = useState('');
 
-    const titleChangeHandler = (event) => { //event - default constant for any event to be hanbdled
-        setEnteredTitle(event.target.value);
-    };
+  //Making multiple state into single state
+  const [userInput, setUserInput] = useState({
+    enteredTitle: "",
+    enteredAmount: "",
+    enteredDate: "",
+  });
 
-    const amountChangeHandler = (event) => {
-        setEnteredAmount(event.target.value);
-    };
-    const dateChangeHandler = (event) => {
-        setEnteredDate(event.target.value);
-    };
+  // Vanilla JavaScript
+  //document.getElementById('').addEventListener('click', (event) => {})
+
+  const titleChangeHandler = (event) => {
+    //event - default constant for any event to be hanbdled
+    //setEnteredTitle(event.target.value);
+    setUserInput({
+        ...userInput, //To copy other two existing data.
+        enteredTitle: event.target.value,
+    });
+  };
+
+  const amountChangeHandler = (event) => {
+    //setEnteredAmount(event.target.value);
+    setUserInput({
+        ...userInput, //To copy other two existing data.
+        enteredAmount: event.target.value,
+    });
+  };
+  const dateChangeHandler = (event) => {
+    //setEnteredDate(event.target.value);
+    setUserInput({
+        ...userInput, //To copy other two existing data.
+        enteredDate: event.target.value,
+    });
+  };
   return (
     <form>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" minLength={2} onChange={titleChangeHandler}/>
+          <input type="text" minLength={2} onChange={titleChangeHandler} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
-          <input type="number" min="0.01" step="0.01" onChange={amountChangeHandler}/>
+          <input
+            type="number"
+            min="0.01"
+            step="0.01"
+            onChange={amountChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Date</label>
-          <input type="date" min="2019-01-01" max="2022-01-01" onChange={dateChangeHandler}/>
+          <input
+            type="date"
+            min="2019-01-01"
+            max="2022-01-01"
+            onChange={dateChangeHandler}
+          />
         </div>
       </div>
       <div className="new-expense__actions">
@@ -40,6 +71,6 @@ const ExpenseForm = () => {
       </div>
     </form>
   );
-}
+};
 
 export default ExpenseForm;
